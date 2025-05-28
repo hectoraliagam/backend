@@ -7,7 +7,7 @@ class ContactBase(BaseModel):
 
 class ContactForm(ContactBase):
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "name": "Juan Pancho",
                 "email": "juanelpancho@example.com",
