@@ -1,0 +1,29 @@
+# Virtual environments
+venv/
+.env
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# IDE files
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Database (SQLite for local dev)
+*.sqlite3
+
+# Build files
+*.egg-info/
+build/
+dist/
+
+# Test and temp files
+*.log
+*.tmp
+.pytest_cache/
+.coverage
