@@ -18,7 +18,12 @@ load_dotenv()
 
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI()
+is_dev = os.getenv("IS_DEV", "false").lower() == "true"
+
+app = FastAPI(
+    docs_url=None if not is_dev else "/docs",
+    redoc_url=None if not is_dev else "/redoc"
+)
 
 limiter = Limiter(key_func=get_remote_address)
 app.state.limiter = limiter
