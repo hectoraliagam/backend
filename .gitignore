@@ -1,13 +1,14 @@
 # Virtual environments
 venv/
 .env
+.env.dev
 
 # Python bytecode
 __pycache__/
 *.py[cod]
 
 # IDE files
-.vscode/
+vscode/
 .idea/
 
 # System files
