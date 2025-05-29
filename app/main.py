@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from app.schemas import ContactForm
 from app.models import Contact, Base
 from app.database import engine, SessionLocal
+from app.auth import verify_token
 from fastapi_mail import FastMail, MessageSchema, ConnectionConfig
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
@@ -44,7 +45,7 @@ conf = ConnectionConfig(
 )
 
 @app.post("/contact")
-async def send_contact(form: ContactForm, db: Session = Depends(get_db)):
+async def send_contact(form: ContactForm, db: Session = Depends(get_db), token: dict = Depends(verify_token)):
 
     contact = Contact(name=form.name, email=form.email, message=form.message)
     db.add(contact)
